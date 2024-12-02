@@ -1,0 +1,62 @@
+/* Root container */
+.nested-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Parent item */
+.nested-list-item {
+  margin: 5px 0;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  position: relative;
+}
+
+/* Toggle indicator for parent */
+.nested-list-item.active > div::after {
+  content: "▼";
+  position: absolute;
+  right: 10px;
+}
+
+.nested-list-item > div::after {
+  content: "▶";
+  position: absolute;
+  right: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Sub-list */
+.nested-list-item ul {
+  margin: 5px 0 0 20px; /* Indentation for child items */
+  display: none; /* Hidden by default */
+}
+
+.nested-list-item.active > ul {
+  display: block; /* Visible when parent is active */
+}
+
+/* Child items */
+.nested-list-item ul > li {
+  padding: 8px;
+  margin: 3px 0;
+  background-color: #8bc34a; /* Slightly lighter green */
+  border-radius: 5px;
+}
+
+.nested-list-item ul > li:hover {
+  background-color: #a5d6a7; /* Highlight on hover */
+}
+
+/* Third-level styling */
+.nested-list-item ul ul > li {
+  background-color: #c8e6c9; /* Lighter green */
+}
+
+.nested-list-item ul ul ul > li {
+  background-color: #e8f5e9; /* Lightest green */
+}
